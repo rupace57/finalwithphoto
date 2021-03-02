@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type=text/css href="/static/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="C:/Users/Situ/Desktop/django/recomendation/templates/style.css"> -->
+    <title>Get Book Recommendations</title>
+    
+</head>
+
+<body>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mt-2 mb-2 mx-auto"><p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 250%;">
+                 Book Recomendation System</p></a>
+            <form class="d-flex" action="/books" method="get">
+                <input class="form-control me-1" type="search" name="u_search" placeholder="Search books"
+                    aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    
+
+    <div class="conr";>
+        <div class="col1">
+            <div class="row">
+                <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;color: white;"> &emsp;<b>Genre</b></p>
+                <div class="row1 ">
+                    <form class="d-grid-dark" action="/Biography" method="get">
+                        <button class="btn btn-outline-white btn-block" type="submit" style="color: whitesmoke;" >Biography</button>
+                    </form>
+                </div>
+                <div class="row2">
+                    <form class="d-flex-dark" action="/Drama" method="get" >
+                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Drama</button>
+                    </form>
+                </div>
+                <div class="row3">
+                    <form class="d-flex-dark" action="/Fantasy" method="get">
+                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Fantasy</button>
+                    </form>
+                </div>
+                <div class="row4">
+                    <form class="d-flex-dark" action="/Fiction" method="get">
+                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Fiction</button>
+                    </form>
+                </div>
+                <div class="row5">
+                    <form class="d-flex-dark" action="/Romance" method="get">
+                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Romance</button>
+                    </form>
+                </div>
+                <div class="row6">
+                    <form class="d-flex-dark" action="/Sci-fi" method="get">
+                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Sci-fi</button>
+                    </form>
+                </div>
+                <div class="row4">
+                    <form class="d-flex-dark" action="/Thriller" method="get">
+                        <button class="btn btn-block btn-outline-white" type="submit" style="color: whitesmoke;">Thriller</button>
+                    </form>
+                </div>
+        
+            </div>
+        </div>
+        <div class="col2">
+            <form class="d-flex-dark" >
+                <input class="form-control me-1" size="100%" type="text" id="recomend" name="search" placeholder="Search books"
+                    aria-label="Search"><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button"  style="border-color:white;"value="Content" onclick="cosin()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" style="border-color:white;" value="Collaborative" onclick="svd()">
+            </form>
+            <!-- <form class="d-flex-dark" action="/svd" method="get">
+                <button class="btn btn-outline-dark " type="submit">SVD</button>
+            </form> -->
+            
+        </div>
+    </div>
+    <script>
+        function cosin(){
+
+            var goc=document.getElementById("recomend"). value ;
+                     
+            window.location.assign("/cossim?"+"search="+goc)
+   
+        }
+        function svd(){
+            var goc=document.getElementById("recomend"). value ;
+            window.location.assign("/svd?"+"search="+goc)
+
+        }
+    </script>
+</body>
+
+
+
+</html>
